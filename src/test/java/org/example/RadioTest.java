@@ -4,6 +4,26 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
+
+    Radio radio = new Radio();
+
+    @Test
+    public void totalStation() {
+        Radio radio1 = new Radio(10);
+        Assertions.assertEquals(10, radio1.getMaxQuantityRadioStation());
+    }
+
+    @Test
+    public void maxEndMinStation() {
+        Radio radio1 = new Radio();
+        radio1.getMaxNumberStation();
+        radio1.getMinNumberStation();
+
+        Assertions.assertEquals(9, radio1.getMaxNumberStation());
+        Assertions.assertEquals(0, radio1.getMinNumberStation());
+    }
+
+
     @Test
     public void rangeIsGreaterThan9() {  // диапазон больше 9
         Radio radio = new Radio();
@@ -16,7 +36,6 @@ public class RadioTest {
 
     @Test
     public void rangeLessThan0() {  // диапазон меньше 0
-        Radio radio = new Radio();
         radio.setCurrentRadioStation(-1);
 
         int expected = 0;
@@ -26,7 +45,6 @@ public class RadioTest {
 
     @Test
     public void equalTo9() {  // равен 9
-        Radio radio = new Radio();
         radio.setCurrentRadioStation(9);
 
         int expected = 9;
@@ -36,7 +54,6 @@ public class RadioTest {
 
     @Test
     public void equalTo0() {  // равен 0
-        Radio radio = new Radio();
         radio.setCurrentRadioStation(0);
 
         int expected = 0;
@@ -46,7 +63,6 @@ public class RadioTest {
 
     @Test
     public void switchingForwardFrom9() {  // переключение вперед с 9
-        Radio radio = new Radio();
         radio.setCurrentRadioStation(9);
         radio.setNextStation();
 
@@ -57,7 +73,6 @@ public class RadioTest {
 
     @Test
     public void switchingForwardFromAny() { // переключение вперед с любой станции
-        Radio radio = new Radio();
         radio.setCurrentRadioStation(0);
         radio.setNextStation();
 
@@ -68,7 +83,6 @@ public class RadioTest {
 
     @Test
     public void switchingBackFrom0() {  // переключение назад  с 0
-        Radio radio = new Radio();
         radio.setPrevStation();
 
         int expected = 9;
@@ -78,7 +92,6 @@ public class RadioTest {
 
     @Test
     public void switchingBackFromAny() {  // переключение назад  с любой станции
-        Radio radio = new Radio();
         radio.setCurrentRadioStation(5);
         radio.setPrevStation();
 
@@ -89,7 +102,6 @@ public class RadioTest {
 
     @Test
     public void maxVolumeLevelRange() {  //  максимальный диапазон громкости радио
-        Radio radio = new Radio();
         radio.setSoundVolume(100);
 
         int expected = 100;
@@ -99,7 +111,6 @@ public class RadioTest {
 
     @Test
     public void minVolumeLevelRanges() { // минимальный диапазон громкости радио
-        Radio radio = new Radio();
         radio.setSoundVolume(0);
 
 
@@ -107,9 +118,9 @@ public class RadioTest {
         int actual = radio.getSoundVolume();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void allVolumeLevelRanges1() {  // вне диапазона уровня громкости минус
-        Radio radio = new Radio();
         radio.setSoundVolume(-1);
 
         int expected = 0;
@@ -119,16 +130,15 @@ public class RadioTest {
 
     @Test
     public void allVolumeLevelRanges2() {  //  вне диапазона уровня громкости плюс
-        Radio radio = new Radio();
         radio.setSoundVolume(101);
 
         int expected = 0;
         int actual = radio.getSoundVolume();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void increaseTheVolume1() {  // увеличение громкости в диапазоне вперед
-        Radio radio = new Radio();
         radio.setSoundVolume(2);
         radio.setIncreaseVolumeLevel();
 
@@ -136,9 +146,9 @@ public class RadioTest {
         int actual = radio.getSoundVolume();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void increaseTheVolume2() {
-        Radio radio = new Radio();
         radio.setSoundVolume(100);
         radio.setIncreaseVolumeLevel();
 
@@ -146,9 +156,9 @@ public class RadioTest {
         int actual = radio.getSoundVolume();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void ReducingVolumeLevel1() {  // уменьшение громкости назад
-        Radio radio = new Radio();
         radio.setSoundVolume(88);
         radio.setReducingVolumeLevel();
 
@@ -157,8 +167,8 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test public void ReducingVolumeLevel2() {
-        Radio radio = new Radio();
+    @Test
+    public void ReducingVolumeLevel2() {
         radio.setSoundVolume(0);
         radio.setReducingVolumeLevel();
 
