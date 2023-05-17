@@ -15,6 +15,7 @@ public class Radio {
     }
 
     public Radio() {
+        maxQuantityRadioStation = 10;
     }
 
     public int getMinNumberStation() {
