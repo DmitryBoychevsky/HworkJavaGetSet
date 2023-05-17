@@ -22,18 +22,22 @@ public class Radio {
     }
 
     public int getMaxNumberStation() {
+
         return maxNumberStation;
     }
 
     public int getMaxQuantityRadioStation() {
+
         return maxQuantityRadioStation;
     }
 
     public int getCurrentRadioStation() {
+
         return currentRadioStation;
     }
 
     public int getSoundVolume() {
+
         return soundVolume;
     }
 
@@ -61,20 +65,13 @@ public class Radio {
         } else
             currentRadioStation--;
     }
-//    public void setSoundVolume(int soundVolume) {     // пытался но не получилось почему то.
-//        if (soundVolume > 0 || soundVolume < 100) {
-//            this.soundVolume = soundVolume;
-//        } else {
-//            return;
-//        }
-//
-//    }
+
 
     public void setSoundVolume(int newSoundVolume) {
-        if (newSoundVolume < minSound) { //  было 0
+        if (newSoundVolume < minSound) {
             return;
         }
-        if (newSoundVolume > maxSound) {  // было 100
+        if (newSoundVolume > maxSound) {
             return;
         }
         soundVolume = newSoundVolume;
